@@ -1,2 +1,2 @@
-. $HOME/.asdf/asdf.sh
+source /usr/local/opt/asdf/asdf.sh
 

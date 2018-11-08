@@ -1,1 +1,1 @@
-. $HOME/.asdf/completions/asdf.bash
+. /usr/local/etc/bash_completion.d/asdf.bash
