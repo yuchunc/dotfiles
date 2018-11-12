@@ -1,9 +1,6 @@
 #!/bin/sh
 VIMHOME=~/.vim
-LOCAL_NAME=vimrc
-VIM_DIR=$(printf "~/.dotfiles/vim" $(pwd) $LOCAL_NAME)
-VIMRC=$(printf "$VIM_DIR/vimrc" $(pwd) $LOCAL_NAME)
-GVIMRC=$(printf "$VIM_DIR/gvimrc" $(pwd) $LOCAL_NAME)
+VIM_DIR=$(printf "%s/vim" $(pwd))
 
 warn() {
     echo "$1" >&2
@@ -14,14 +11,14 @@ die() {
     exit 1
 }
 
-[ -e "$VIMHOME" ] && die "$VIMHOME already exists."<Paste>
-[ -e "~/.vimrc" ] && die "~/.vimrc already exists."
-
+if [[ -d "$VIMHOME" ]] 
+then 
+  die "$VIMHOME directory exists, you might want to back it up."
+fi
 # Link folder and files
 cd ~
-ln -s $VIM_DIR $VIMHOME
-ln -s $VIMRC .vimrc
-ln -s $GVIMRC .gvimrc
+
+ln -sf $VIM_DIR $VIMHOME
 
 cd $VIMHOME
 curl -fLo $VIMHOME/autoload/plug.vim --create-dirs \
