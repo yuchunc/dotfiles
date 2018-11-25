@@ -1,6 +1,6 @@
 #!/bin/sh
-VIMHOME=~/.vim
-VIM_DIR=$(printf "%s/vim" $(pwd))
+VIMHOME=~/.config/nvim
+VIM_DIR=$(printf "%s/nvim" $(pwd))
 
 warn() {
     echo "$1" >&2
@@ -18,6 +18,7 @@ fi
 # Link folder and files
 cd ~
 
+mkdir -p ~/.config
 ln -sf $VIM_DIR $VIMHOME
 
 cd $VIMHOME
