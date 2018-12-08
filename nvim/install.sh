@@ -26,10 +26,13 @@ else
   ln -sf $NVIM_DIR $NVIM_HOME
 fi
 
+pip3 install --user pynvim
+
 cd $NVIM_HOME
 echo "Install Vim Plug"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-nvim -n -c "set nomore" +PlugUpgrade +PlugInstall +qall
+nvim -n -c "set nomore" +PlugUpgrade +PlugInstall +UpdateRemotePlugins +qall
+
 
 echo "Vim is ready to use. Happy Hacking～"
