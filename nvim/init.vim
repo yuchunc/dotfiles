@@ -22,23 +22,23 @@ filetype indent plugin on
 
 " Denite Config
 call denite#custom#var('file/rec', 'command',
-\ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+      \ ['rg', '--files', '--glob', '!.git'])
 
 " Status line config
 " Check https://github.com/itchyny/lightline.vim for more details
 set noshowmode
 
 let g:lightline = {
-\   'colorscheme': 'wombat',
-\   'active': {
-\     'left': [ [ 'mode', 'paste' ],
-\               [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-\   },
-\   'component_function': {
-\     'gitbranch': 'fugitive#head',
-\     'readonly': 'LightlineReadonly',
-\   },
-\ }
+      \   'colorscheme': 'wombat',
+      \   'active': {
+      \     'left': [ [ 'mode', 'paste' ],
+      \               [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \   },
+      \   'component_function': {
+      \     'gitbranch': 'fugitive#head',
+      \     'readonly': 'LightlineReadonly',
+      \   },
+      \ }
 
 function! LightlineReadonly()
   return &readonly && &filetype !=# 'help' ? 'RO' : ''
