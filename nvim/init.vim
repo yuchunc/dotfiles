@@ -23,6 +23,9 @@ set showtabline=2
 set noerrorbells
 " change indent from <TAB> to 2 spaces
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
+" set no swap file
+set noswapfile
+set shortmess=IaA    " Disable initial message + some other short form
 
 " remove tailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
@@ -83,12 +86,3 @@ endfunction
 
 " Commenting mapping
 map <Leader><Leader> <Leader>c<space>
-
-" NERDTree Configs
-map <leader>r :NERDTreeMirrorToggle<CR>
-map <leader>r :NERDTreeFind<cr>
-
-let NERDTreeChDirMode=2
-let NERDTreeMinimalUI=1
-let NERDTreeDirArrows=1
-let g:NERDTreeWinSize=30
