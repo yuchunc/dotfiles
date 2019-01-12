@@ -14,15 +14,24 @@ call plug#end()
 
 " General Window
 syntax on
-set nu
+
 set hidden
+set number
+set showtabline=2
+" set winwidth=100
+" disable sound on errors
+set noerrorbells
+" change indent from <TAB> to 2 spaces
+set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
+" set no swap file
+set noswapfile
+set shortmess=IaA    " Disable initial message + some other short form
+
+" remove tailing whitespace
+autocmd BufWritePre * :%s/\s\+$//e
 
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
-
-" Denite Config
-call denite#custom#var('file/rec', 'command',
-      \ ['rg', '--files', '--glob', '!.git'])
 
 " Status line config
 " Check https://github.com/itchyny/lightline.vim for more details
@@ -46,12 +55,3 @@ endfunction
 
 " Commenting mapping
 map <Leader><Leader> <Leader>c<space>
-
-" NERDTree Configs
-map <leader>r :NERDTreeMirrorToggle<CR>
-map <leader>r :NERDTreeFind<cr>
-
-let NERDTreeChDirMode=2
-let NERDTreeMinimalUI=1
-let NERDTreeDirArrows=1
-let g:NERDTreeWinSize=30
