@@ -2,7 +2,6 @@
 call plug#begin('~/.config/nvim/plugged')
 
 " General plugs
-Plug '/usr/local/opt/fzf'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -33,6 +32,10 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
 
+" Toggle searh highlighting
+set hlsearch
+nnoremap <CR> :silent! nohlsearch<CR>
+
 " Status line config
 " Check https://github.com/itchyny/lightline.vim for more details
 set noshowmode
@@ -55,3 +58,4 @@ endfunction
 
 " Commenting mapping
 map <Leader><Leader> <Leader>c<space>
+
