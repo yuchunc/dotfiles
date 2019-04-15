@@ -18,10 +18,13 @@ set hidden
 set number
 set showtabline=2
 " set winwidth=100
+
 " disable sound on errors
 set noerrorbells
+
 " change indent from <TAB> to 2 spaces
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
+
 " set no swap file
 set noswapfile
 set shortmess=IaA    " Disable initial message + some other short form
@@ -35,6 +38,9 @@ filetype indent plugin on
 " Toggle searh highlighting
 set hlsearch
 nnoremap <CR> :silent! nohlsearch<CR>
+
+" NERDTree - go to file
+nnoremap <leader>r :NERDTreeFind<CR>
 
 " Status line config
 " Check https://github.com/itchyny/lightline.vim for more details
