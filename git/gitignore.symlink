@@ -1,3 +1,5 @@
-.DS_Store
 *~
 *.swp
+.tool-versions
+gear_config*
+.DS_STORE
